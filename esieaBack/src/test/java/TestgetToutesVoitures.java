@@ -19,10 +19,10 @@ import static org.junit.Assert.assertEquals;
 public class TestgetToutesVoitures  {
 
     @InjectMocks
-    private VoitureAPI instance; // Remplacez VotreClasseAVerifier par le nom de votre classe
+    private VoitureAPI instance;
 
     @Mock
-    private VoitureDAO vDao; // Remplacez VoitureDAO par le type de votre classe de DAO
+    private VoitureDAO vDao;
 
     @Before
     public void setUp() {
@@ -32,30 +32,17 @@ public class TestgetToutesVoitures  {
     @Test
     public void testGetToutesVoitures() throws SQLException {
         int mini = 0;
-        int nbVoitures = 10; // Remplacez ces valeurs par celles que vous souhaitez tester
-
-        // Créez une liste simulée de voitures qui sera retournée par vDao.getVoitures
+        int nbVoitures = 10;
         Voiture voiture1 = new Voiture();
-        // Initialisez les propriétés de la voiture 1 selon vos besoins
         Voiture voiture2 = new Voiture();
-        // Initialisez les propriétés de la voiture 2 selon vos besoins
         Voiture voiture3 = new Voiture();
-        // Initialisez les propriétés de la voiture 3 selon vos besoins
         List<Voiture> voituresAttendues = Arrays.asList(voiture1, voiture2, voiture3);
-
-        // Créez un objet ReponseVoiture simulé
+        //Création  d'un objet ReponseVoiture simulé
         ReponseVoiture reponseVoitureSimule = new ReponseVoiture();
         reponseVoitureSimule.setVoitures(voituresAttendues);
-
-        // Définissez le comportement attendu de vDao.getVoitures pour retourner reponseVoitureSimule
         Mockito.when(vDao.getVoitures(null, mini, nbVoitures)).thenReturn(reponseVoitureSimule);
-
         ReponseVoiture resultat = instance.getToutesVoitures(mini, nbVoitures);
-
-        // Vérifiez si le résultat obtenu correspond au résultat attendu
-        // Vous pouvez personnaliser cette vérification en fonction de votre classe ReponseVoiture
+        //verifications de la reponse du resultat via une assertio
         assertEquals(voituresAttendues, resultat.getVoitures());
     }
-
-
 }

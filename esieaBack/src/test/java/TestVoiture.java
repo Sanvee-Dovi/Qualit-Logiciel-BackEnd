@@ -16,19 +16,14 @@ public class TestVoiture {
         voiture.setKm(50000);
         voiture.setAnnee(2020);
         voiture.setPrix(20000);
-
         assertTrue(voiture.check());
     }
 
     @Test
     public void testToString() {
-        Voiture obj = new Voiture(); // Remplacez par une instance de votre classe avec des données de test
-
+        Voiture obj = new Voiture();
         String jsonString = obj.toString();
-
-        assertNotNull(jsonString); // Vérifie que la chaîne JSON n'est pas nulle
-
-        // Vous pouvez ajouter des assertions supplémentaires ici pour valider la structure JSON ou des valeurs spécifiques si nécessaire.
+        assertNotNull(jsonString);
     }
 
     @Test
@@ -48,7 +43,6 @@ public class TestVoiture {
 
     @Test
     public void testGetTypeDonnee() {
-
         assertEquals("string", Voiture.getTypeDonnee("marque"));
         assertEquals("entier", Voiture.getTypeDonnee("id"));
         assertEquals("", Voiture.getTypeDonnee("color")); // Invalid attribute

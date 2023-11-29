@@ -11,7 +11,7 @@ public class TestAjouterVoiture {
         String result = api.ajouterVoiture(saisieJson);
 
         JSONObject Json = new JSONObject(result);
-        // Assurez-vous que le résultat est correct en fonction de vos attentes
+        //verifications du resultat via une assertion
         assertTrue(Json.getBoolean("succes"));
     }
 
@@ -22,7 +22,7 @@ public class TestAjouterVoiture {
         String result = api.ajouterVoiture(saisieJson);
 
         JSONObject Json = new JSONObject(result);
-        // Assurez-vous que le résultat est correct en fonction de vos attentes
+        //verifications du resultat via une assertion
         assertFalse(Json.getBoolean("succes"));
     }
 }
